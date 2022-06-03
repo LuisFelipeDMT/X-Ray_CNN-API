@@ -19,11 +19,12 @@ def index():
 
 @app.get("/analyse_image")
 
-def analyse_image(image):
+def analyse_image(imageLink):
 
-    proba,disease=predict_image(image)
+    prob, categories, disease=predict_image(imageLink)
     result = {
-        'Probability': proba,
+        'Probabilities': prob,
+        "Categories":categories,
         'Disease': disease
     }
 
